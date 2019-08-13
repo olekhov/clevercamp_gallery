@@ -34,6 +34,17 @@ for album in gal_index.find_all('li') :
     adate=album.find(attrs={'class':'album-date'}).text
     aurl='http://clevercamp.ru'+album.find(attrs={'class':'blogs__item-link'})['href']
     print(f"Скачиваем всё из {adate}: {aurl}")
+    photo_array_url=f"{aurl}/?UCID=bxph_list_0&sessid={sessid}&return_array=Y&PAGEN_2=1"
+    pdb.set_trace()
+    photo_array=rq.get(photo_array_url)
+    # выкинуть из текста "window.bxphres = "
+    pa= bs(photo_array.text,'html.parser').text[17:].replace("'",'"').replace('items','"items"')
+
+    pajs = json.loads(pa)
+
+
+
+    # {aurl}/?UCID=bxph_list_0&sessid={sessid}&return_array=Y&PAGEN_2={page}'
 
 
 
