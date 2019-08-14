@@ -1,4 +1,5 @@
 {
 	"url":"http://clevercamp.ru/photo/xxx",
-	"password": "yyy"
+	"password": "yyy",
+	"dlfolder": "fotki"
 }
